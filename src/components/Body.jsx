@@ -18,7 +18,7 @@ const Body = () => {
   const fetchData = async () => {
     const data = await fetch("https://proxy.cors.sh/" + URL, {
       headers: {
-        "x-cors-api-key": "temp_8287db970449f74d6eac17be407804e4",
+        "x-cors-api-key": "temp_4566be7d20dacdb15f11272b90e35090",
       },
     });
     const json = await data.json();

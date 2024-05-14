@@ -14,10 +14,10 @@ const RestaurantPage = () => {
 
   const fetchData = async () => {
     const data = await fetch(
-      `https://proxy.cors.sh/https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.6828082&lng=77.3121354&restaurantId=${resId}`,
+      `https://proxy.cors.sh/https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.692925823423074&lng=77.33269829303026&restaurantId=${resId}`,
       {
         headers: {
-          "x-cors-api-key": "temp_8287db970449f74d6eac17be407804e4",
+          "x-cors-api-key": "temp_4566be7d20dacdb15f11272b90e35090",
         },
       }
     );
@@ -28,10 +28,10 @@ const RestaurantPage = () => {
   if (resMenu === null) return <Shimmer />;
 
   const { name, cuisines, costForTwoMessage, avgRating } =
-    resMenu?.cards[0]?.card?.card?.info;
+    resMenu?.cards[2]?.card?.card?.info;
 
   const resTitles =
-    resMenu?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+    resMenu?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
       (res) => {
         return (
           res?.card?.card?.["@type"] ===
