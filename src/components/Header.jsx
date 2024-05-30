@@ -2,9 +2,13 @@ import React from "react";
 import logo from "../assets/logo.webp";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/hooks/useOnlineStatus";
+import { useSelector } from "react-redux";
+import { FaShoppingCart } from "react-icons/fa";
 
 const Header = () => {
   const onlineStatus = useOnlineStatus();
+
+  const cartItems = useSelector((store) => store.cart.items);
   return (
     <>
       <header>
@@ -21,15 +25,38 @@ const Header = () => {
                 Home
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link
                 to={"/About"}
                 style={{ textDecoration: "none", color: "black" }}
               >
                 About
               </Link>
+            </li> */}
+            <li>
+              <Link
+                to={"/Cart"}
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                <div
+                  className="cart-icon"
+                  style={{ position: "relative", color: "red" }}
+                >
+                  <FaShoppingCart />{" "}
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: "-20px",
+                      right: "-20px",
+                      fontSize: "25px",
+                      color: "red",
+                    }}
+                  >
+                    {cartItems.length}
+                  </div>
+                </div>
+              </Link>{" "}
             </li>
-            <li>Cart</li>
           </ul>
         </nav>
       </header>

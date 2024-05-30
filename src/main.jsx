@@ -6,13 +6,19 @@ import Body from "./components/Body";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import About from "./components/About";
 import RestaurantPage from "./components/RestaurantPage";
+import { Provider } from "react-redux";
+import appStore from "./store/appStore";
+import Cart from "./components/Cart";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AppLayout = () => {
   return (
-    <>
+    <Provider store={appStore}>
+      <ToastContainer />
       <Header />
       <Outlet />
-    </>
+    </Provider>
   );
 };
 const appRouter = createBrowserRouter([
@@ -23,6 +29,7 @@ const appRouter = createBrowserRouter([
       { path: "/", element: <Body /> },
       { path: "/About", element: <About /> },
       { path: "/Restaurant/:resId", element: <RestaurantPage /> },
+      { path: "/Cart", element: <Cart /> },
     ],
   },
 ]);

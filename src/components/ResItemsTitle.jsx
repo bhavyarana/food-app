@@ -7,8 +7,8 @@ const ResItemsTitle = ({ data }) => {
   };
   return (
     <>
-      <div className="res-items-container" onClick={handleClick}>
-        <div className="res-items-title">
+      <div className="res-items-container">
+        <div className="res-items-title" onClick={handleClick}>
           <h3>
             {data?.card?.card?.title} ({data?.card?.card?.itemCards.length})
           </h3>
