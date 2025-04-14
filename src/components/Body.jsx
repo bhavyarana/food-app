@@ -36,7 +36,8 @@ const Body = () => {
     setFilteredList(filtered);
   };
   const searchList = (e) => {
-    setSearch(e.target.value);
+    const keyword = e.target.value.toLowerCase();
+    setSearch(keyword);
     const searched = list.filter((data) => {
       return data.info.name.toLowerCase().includes(search);
     });
@@ -45,7 +46,7 @@ const Body = () => {
   const onlineStatus = useOnlineStatus();
   if (onlineStatus === false)
     return <h1>seems u r offline!! Check your internet connection.</h1>;
-  return list === null ? (
+  return !Array.isArray(filteredList) || filteredList.length === 0 ? (
     <Shimmer />
   ) : (
     <>
