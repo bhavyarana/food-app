@@ -297,3 +297,14 @@ nav ul li:hover {
   cursor: pointer;
   font-size: 20px;
 }
+.mobile-page {
+  background-color: rgb(252, 255, 97);
+  color: red;
+  font-style: cursive;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
